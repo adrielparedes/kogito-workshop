@@ -1,0 +1,155 @@
+= Drools Workshop
+Ing. Adriel Paredes <aparedes@redhat.com> Senior Software Engineer @ Business Systems And Intelligence Group, Red Hat Inc. 
+KIE Group Core Developer
+:toc:
+:imagesdir: assets/images
+:doctype: article
+
+
+== Introducción Teórica
+
+=== Sistemas Expertos
+
+=== Paradigma Lógico
+
+=== Drools & DMN
+
+https://nicolas-heron.gitbook.io/droolsonboarding/drools
+
+== Manos a la Obra
+
+=== Caso de Estudio (COVID-19)
+
+==== CS criterio 1
+
+Toda persona de cualquier edad que presente dos o más de los siguientes síntomas:
+
+* Fiebre (37.5°C o más)
+* Tos
+* Odinofagia (Dolor al tragar alimentos o líquidos)
+* Dificultad respiratoria
+* Anosmia/disgeusia de reciente aparición (Pérdida parcial o completa del sentido del olfato/gusto)
+* Cefalea
+* Diarrea y/o vómitos
+* Este criterio incluye toda enfermedad respiratoria aguda severa sin otra etiología que explique completamente la presentación clínica
+
+==== CS criterio 2
+Toda persona que:
+
+* Sea trabajador de salud
+* Resida o trabaje en instituciones cerradas o de internación prolongada.footnote:[penitenciarias, residencias de adultos mayores, instituciones neuropsiquiátricas, hogares de niñas y niños]
+* Sea Personal esencial .footnote:[se considera personal esencial:
+Fuerzas de seguridad y Fuerzas Armadas
+Personas que brinden asistencia a personas mayores]
+* Resida en barrios populares o pueblos originarios. footnote:[Se considera barrio popular a aquellos donde la mitad de la población no cuenta con título de propiedad, ni acceso a dos o más servicios básicos. ]footnote:[Fuente: Registro Nacional de Barrios Populares]
+* Sea contacto estrecho de caso confirmado de COVID-19, que dentro de los 14 días * posteriores al contacto:
+* Presente 1 o más de estos síntomas: 
+    ** fiebre (37.5°C o más)
+    ** Tos
+    ** Odinofagia
+    ** dificultad respiratoria
+    ** pérdida repentina del gusto o del olfato.
+
+
+
+==== CS criterio 3
+
+SÍNDROME INFLAMATORIO MULTISISTÉMICO POST- COVID19 EN PEDIATRÍA
+Niños y adolescentes de 0 a 18 años con fiebre mayor a 3 días y dos de los siguientes:
+Erupción cutánea o conjuntivitis bilateral no purulenta o signos de inflamación mucocutánea (oral, manos o pies).
+Hipotensión o shock.
+Características de disfunción miocárdica, pericarditis, valvulitis o anomalías  coronarias (incluidos los hallazgos ecográficos o elevación de Troponina / NT-proBNP).
+Evidencia de coagulopatía (elevación de PT, PTT, Dímero-D).
+AND
+Síntomas gastrointestinales agudos (diarrea, vómitos o dolor abdominal).
+Marcadores elevados de inflamación, como eritrosedimentación, proteína C reactiva o procalcitonina.
+Ninguna otra causa evidente de inflamación (incluida la sepsis bacteriana, síndromes de shock estafilocócicas o estreptocócicas).
+
+*Definición adaptada de la Organización Mundial de la Salud
+
+==== CS Nota
+NOTA: todo personal de salud, contacto estrecho de casos confirmados, debe cumplir con aislamiento preventivo obligatorio por 14 días desde último contacto. 
+
+
+
+
+
+=== Herramientas
+
+==== Como crear un proyecto Kogito
+
+https://kogito.kie.org/
+
+```bash
+mvn archetype:generate \
+    -DarchetypeGroupId=org.kie.kogito \
+    -DarchetypeArtifactId=kogito-quarkus-archetype \
+    -DgroupId=org.kogito -DartifactId=covid-19 \
+    -DarchetypeVersion=0.17.0 \
+    -Dversion=1.0-SNAPSHOT
+```
+
+==== Extensiones a instalar:
+
+* `jim-moody.drools`
+* `kie-group.vscode-extension-kogito-bundle`
+* `redhat.vscode-quarkus`
+* `redhat.java`
+
+Una vez finalizado este proceso ya estamos listos para comenzar a trabajar.
+
+==== Clonar el proyecto
+
+Van a necesitar hacer un git clone del proyecto que se encuentra en: https://github.com/adrielparedes/covid-19
+
+Allí hay 2 carpetas:
+
+* Starter
+* Final
+
+Starter es la que tienen que utilizar de base y Final es el workshop terminado.
+
+==== Estructura de directorios
+
+* `src/main/java:` Modelos de la aplicación
+* `src/main/resources:` Toma de decision
+
+=== Entendiendo el Dominio
+
+=== DRL (Drools Rules Language)
+
+==== Estructura de una regla
+
+```mvel
+package <1>
+
+import <2>
+
+function  // Optional <3>
+ 
+declare   // Optional <4>
+
+global   // Optional <5>
+
+rule "rule name" <6>
+    // Attributes
+    when <7>
+        // Conditions
+    then <8>
+        // Actions
+end
+```
+<1> Simplemente un nombre, un espacio de trabajo.
+<2> Los paquetes que se van a necesitar importar para poder trabajar dentro del las reglas
+<3> Sirve para escribir código sin tener que ponerlo en una clase Java. Se recomienda este método solo para cosas simples.
+<4> En esta sección se pueden declarar nuevos tipos de datos, en vez de hacerlos en una clase Java. Para mejor reutilización es preferible que sea una clase Java.
+<5> Global sirve para guardar variables de manera global dentro de la working memory.
+<6> El nombre especifico de la regla. Tiene que ser único para poder reconocerla.
+<7> LHS (Left Hand Side). La clausula condicional de la regla. Va a determinar el valor de verdad de la misma.
+<8> RHS <Right Hand Side). La acción de la regla. Va a ejecutar lo que se encuentre alli siempre y cuando el LHS sea verdadero.
+
+=== Decision Table
+=== DSL (Domain Specific Language)
+=== DMN (Decision Model and Notation)
+
+

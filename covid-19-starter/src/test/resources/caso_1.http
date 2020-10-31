@@ -1,0 +1,36 @@
+POST http://localhost:8080/is-caso-sospechoso
+content-type: application/json
+
+{
+  "sintomas": [
+    {
+      "nombre": "diarrea",
+      "valor": true
+    },
+     {
+      "nombre": "vomitos",
+      "valor": true
+    }
+  ]
+}
+
+###
+POST http://localhost:8080/criterios
+content-type: application/json
+
+{
+  "sintomas": [
+     {
+      "nombre": "temperatura",
+      "valor": 39
+    },
+    {
+      "nombre": "diarrea",
+      "valor": true
+    },
+     {
+      "nombre": "vomitos",
+      "valor": true
+    }
+  ]
+}

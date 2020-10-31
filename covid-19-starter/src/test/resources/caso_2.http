@@ -1,0 +1,31 @@
+POST http://localhost:8080/CriterioDos
+content-type: application/json
+
+{
+  "sintomas": [
+    {
+      "nombre": "diarrea",
+      "valor": true
+    },
+     {
+      "nombre": "vomitos",
+      "valor": true
+    }
+  ]
+}
+###
+POST http://localhost:8080/CriterioDos/dmnresult
+content-type: application/json
+
+{
+  "sintomas":[
+    {
+      "nombre": "temperatura",
+      "valor": 39
+    }],
+  "direccion":"barrio 11-14",
+  "contacto estrecho":false,
+  "profesion":"medicina",
+  "lugar de trabajo":"Fuerzas Armadas"
+}
+###
