@@ -21,8 +21,10 @@ content-type: application/json
   "sintomas":[
     {
       "nombre": "temperatura",
-      "valor": 39
-    }],
+      "valor": 32
+    },
+    {"nombre":"odinofagia",
+    "valor":true}],
   "direccion":"barrio 11-14",
   "contacto estrecho":false,
   "profesion":"medicina",
