@@ -1,8 +1,10 @@
-= Kogito Workshop
+:imagesdir: images
 :toc: macro
 :title-page:
-:imagesdir: images
 :doctype: article
+
+image::kogito.png[]
+= Kogito Workshop
 
 [.small]
 [%hardbreaks]
