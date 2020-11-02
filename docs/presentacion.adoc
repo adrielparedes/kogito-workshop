@@ -1,0 +1,13 @@
+== Taller de Drools (Kogito)
+
+Ing. Adriel Paredes
+
+Senior Software Engineer @ Red Hat Inc.
+
+Red Hat Business Systems And Intelligence Group
+
+Kogito, jBPM, Drools community member
+
+== Sistemas Expertos
+
+Un sistema experto es un sistema que emula el razonamiento humano actuando tal y como lo haría un experto. Es una rama de la inteligencia artificial que se encarga de simular ese comportamiento extrayendo ese conocimiento y almacenandolo en forma de reglas para que luego mediante un motor de inferencia y la base de conocimiento se pueda resolver el problema en cuestión.
